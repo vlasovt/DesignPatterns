@@ -30,7 +30,8 @@ namespace DesignPatterns.SimpleBuilder
             if (!string.IsNullOrWhiteSpace(Text))
             {
                 sb.Append(new string(' ', identSize * indent + 1));
-                sb.AppendLine(Text);
+                
+
             }
 
             foreach (var e in Elements)

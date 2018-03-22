@@ -1,5 +1,4 @@
-﻿using DesignPatterns.RecursiveGenericsForFluentInheritance;
-using DesignPatterns.SimpleBuilder;
+﻿using DesignPatterns.SimpleBuilder;
 using System;
 
 namespace DesignPatterns
@@ -21,11 +20,27 @@ namespace DesignPatterns
             Console.WriteLine("Fluent Builder with Recursive Generics:");
             Console.WriteLine();
 
-            var person = Person.New
+            var person = RecursiveGenericsForFluentInheritance.Person.New
                 .Called("Peter Johnson")
                 .WorksAs("Journalist")
                 .Build();
             Console.WriteLine(person);
+
+            Console.WriteLine();
+            Console.WriteLine("Faceted Builder:");
+            Console.WriteLine();
+
+            var pb = new FacetedBuilder.PersonBuilder();
+            FacetedBuilder.Person facetedPerson = pb.Works
+                .At("Toyota")
+                .AsA("Engineer")
+                .Earning(123000)
+                .Lives
+                .At("123 london Road")
+                .In("London")
+                .WithPostcode("ERD DFR");
+
+            Console.WriteLine(facetedPerson);
 
             Console.ReadKey();
         }
